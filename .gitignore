@@ -1,0 +1,12 @@
+# Logs
+logs
+*.log
+
+# Dependencies
+/node_modules
+
+# Gatsby files
+.cache/
+
+# Etc
+/tests

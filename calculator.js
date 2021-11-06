@@ -1,4 +1,5 @@
 const readline = require("readline");
+const Logger = require("./logger");
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -24,10 +25,10 @@ rl.on('line', function (line) {
     const res = eval(input);
 
     /** show Result */
-    console.log(`=> ${res}`);
+    Logger.success(`=> ${res}`)
   } catch (e) {
     /** show Error */
-    console.log(`${e}`);
+    Logger.error(e)
   }
 
   /** Prompt for new one */
@@ -35,6 +36,6 @@ rl.on('line', function (line) {
 }).on('SIGINT', function () {
   rl.close();
 }).on('close', function () {
-  console.log('See you!');
+  Logger.success('See you!')
   process.exit(0);
-})
+});

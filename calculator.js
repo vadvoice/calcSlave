@@ -12,9 +12,9 @@ rl.on('line', function (line) {
   const input = line.trim();
   try {
     const basicMathOperations = new RegExp(/([-+]?[0-9]*\.?[0-9]+ ?[\/\+\-\*] ?)+([-+]?[0-9]*\.?[0-9]+)/g);
-    const isInputAllowed = basicMathOperations.test(input);
-    if (!isInputAllowed) {
-      throw new Error(`Illegal operation "${input}""`);
+    const isInputAllowed = basicMathOperations.test(input), isSingleNumber = /^\d+$/.test(input);
+    if (!isInputAllowed && !isSingleNumber) {
+      throw new Error(`Illegal operation "${input}"`);
     }
     const res = eval(input);
     console.log(`=> ${res}`);
